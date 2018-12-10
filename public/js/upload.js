@@ -1,0 +1,7 @@
+$(function(){function a(c){const d=new FileReader;d.onprogress=function(){$('.overlay').show(),$('.loader').css('visibility','visible')},d.onloadend=function(e){$('.overlay').hide(),$('.loader').css('visibility','hidden');const f=e.target.result;$('#dropzone').hide(),$('#video-wrapper').prepend('<video src="'+f+'" width="400" height="300" controls></video>').css('display','flex')},d.readAsDataURL(c)}alert(`请确保您上传的视频分辨率为标准格式，不然上传的视频将会无效！！\n标准分辨率如列表所示：
+    4K —— 4096x2160
+    2K —— 2048x1080
+    1080P —— 1920x1080
+    720P —— 1280x720
+    480P —— 640x480
+    360P —— 480x360`),$('#poster').change(function(){$(this).next('.custom-file-label').html($(this).val()?$(this).val():'\u9009\u62E9\u4E00\u5F20\u56FE\u7247\u4F5C\u4E3A\u89C6\u9891\u5C01\u9762\uFF0C\u82E5\u4E0D\u9009\u62E9\u9ED8\u8BA4\u53D6\u89C6\u9891\u7B2C\u4E00\u5E27 ......')});let b=document.getElementById('dropzone');$('#video').change(function(){0!==this.files.length&&a(this.files[0])}),b.onclick=function(){$('#video').click()},b.ondragover=b.ondragenter=function(c){c.stopPropagation(),c.preventDefault()},b.ondrop=function(c){var d=/^video\//;c.stopPropagation(),c.preventDefault();var e=c.dataTransfer.files;console.log(e),1===e.length?d.test(e[0].type)?a(e[0]):alert('\u8BF7\u9009\u62E9\u89C6\u9891\u683C\u5F0F\u7684\u6587\u4EF6'):alert('\u4E00\u6B21\u53EA\u80FD\u4E0A\u4F20\u4E00\u4E2A\u6587\u4EF6')}});
